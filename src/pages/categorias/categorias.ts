@@ -33,7 +33,7 @@ export class CategoriasPage {
 
     },
     (erro)=>{
-      console.log(erro)
+     
     });
   }
 
