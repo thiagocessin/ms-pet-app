@@ -24,13 +24,13 @@ export class HomePage {
   ionViewWillEnter() {
     this.menu.swipeEnable(false);
   }
-  
+
   ionViewDidLeave() {
     this.menu.swipeEnable(true);
   }
   login(){
     this.auth.authenticate(this.creds).subscribe((res)=>{
-      console.log(res.headers.get('Authorization'))
+      this.auth.successfullLogin(res.headers.get('Authorization'))
       this.navCtrl.setRoot("CategoriasPage")
     },
     (erro)=>{});
