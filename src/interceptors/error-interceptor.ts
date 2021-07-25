@@ -7,7 +7,7 @@ export class ErrorInterceptor implements HttpInterceptor{
 
     //intercepta a requisição e executa a lógica dentro do método
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
-        console.log('Inteceptor: passou')
+
         return next.handle(req)
             .catch((error, caught)=>{
                 let errorObj = error;
@@ -27,7 +27,7 @@ export class ErrorInterceptor implements HttpInterceptor{
             }) as any;
 
     }
- 
+
 }
 //fornece informações, exigência do angular
 export const ErrorInterceptorProvider = {
