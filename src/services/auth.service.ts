@@ -19,8 +19,18 @@ constructor(public http: HttpClient,
 authenticate(creds: CredenciaisDTO){
     return this.http.post(
         `${API_CONFIG.baseUrl}/login`,
-        creds,
-        //especifico a resposta com header
+        creds,//dados a serem enviados no body
+        {
+            observe: 'response',
+            responseType:'text'
+        });
+
+  }
+
+  refreshToken(){
+    return this.http.post(
+        `${API_CONFIG.baseUrl}/auth/refresh_token`,
+        {},
         {
             observe: 'response',
             responseType:'text'
