@@ -36,7 +36,15 @@ export class ProfilePage {
           this.cliente = res;
           this.getImageIfExists()
         },
-        (erro)=>{console.log(erro)})
+        (error)=>{
+
+          if(error.status == 403){
+            this.navCtrl.setRoot('HomePage');
+
+          }
+        })
+    }else{
+      this.navCtrl.setRoot('HomePage');
     }
 
   }
