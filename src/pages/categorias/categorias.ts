@@ -17,12 +17,12 @@ import { CategoriaService } from '../../services/domain/categoria.service';
   templateUrl: 'categorias.html',
 })
 export class CategoriasPage {
-  
+
   bucketUrl:string = API_CONFIG.bucketBaseUrl;
   items: CategoriaDTO[];
-  
 
-  constructor(public navCtrl: NavController, 
+
+  constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public categoriaService: CategoriaService) {
   }
@@ -33,8 +33,12 @@ export class CategoriasPage {
 
     },
     (erro)=>{
-     
+
     });
+  }
+
+  showProdutos(){
+    this.navCtrl.push('ProdutosPage');
   }
 
 }
