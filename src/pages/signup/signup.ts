@@ -53,10 +53,7 @@ export class SignupPage {
   ionViewDidLoad(){
     this.estadoService.findAll()
       .subscribe(res => {
-
         this.estados = res;
-
-
         this.formGroup.controls.estadoId.setValue(this.estados[0].id);
         this.updateCidades();
       },
@@ -69,7 +66,6 @@ export class SignupPage {
     this.cidadeService.findAll(estadoId)
       .subscribe(res=>{
         this.cidades = res;
-
         this.formGroup.controls.cidadeId.setValue(null);
       },
       (error)=>{})
