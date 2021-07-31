@@ -1,8 +1,8 @@
+import { ClienteDTO } from './../../models/cliente.dto';
 import { API_CONFIG } from './../../config/api.config';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/RX";
-import { ClienteDTO } from "../../models/cliente.dto";
 import { StorageService } from '../storage.service';
 
 @Injectable()
@@ -27,5 +27,14 @@ export class ClienteService{
     return this.http.get(url,{responseType:'blob'});//imagem
 
   }
+
+  insert(obj:ClienteDTO){
+      return this.http.post(`${API_CONFIG.baseUrl}/clientes`,
+                              obj,
+                              {
+                                observe:'response',
+                                responseType:'text'//texto pois o corpo vem vazio e querop evitar erro de parse de json
+                              });
+    }
 
 }
